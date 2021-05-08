@@ -42,7 +42,7 @@ fun Canvas.drawSquareDiagRot(scale : Float, w : Float, h : Float, paint : Paint)
     for (j in 0..1) {
         save()
         scale(1f - 2 * j, 1f)
-        translate(-w / 2 + (w / 2 - size) * sf2, 0f)
+        translate(-w / 2 + (w / 2 - size) * sf2, size * j)
         drawRect(RectF(0f, -size / 2, size * sf1, size / 2), paint)
         restore()
     }
