@@ -182,4 +182,27 @@ class SquareDiagRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SquareDiagRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val sdr : SquareDiagRot = SquareDiagRot(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            sdr.draw(canvas, paint)
+            animator.animate {
+                sdr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            sdr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
