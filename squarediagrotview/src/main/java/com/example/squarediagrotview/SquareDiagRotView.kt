@@ -207,4 +207,12 @@ class SquareDiagRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : SquareDiagRotView {
+            val view : SquareDiagRotView = SquareDiagRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
